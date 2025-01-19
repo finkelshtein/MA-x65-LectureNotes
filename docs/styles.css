@@ -1,0 +1,67 @@
+div.callout-note.callout {
+    border-left-color: #704214;
+    border-left-width: 5pt;
+}
+
+div.callout-tip.callout {
+    border-left-color: #B31E21;
+    border-left-width: 5pt;
+}
+
+div.callout-warning.callout {
+    border-left-color: #35554E;
+    border-left-width: 5pt;
+}
+
+div.callout-important.callout {
+    border-left-color: #7A004B;
+    border-left-width: 5pt;
+}
+
+div.callout-caution.callout {
+    border-left-color: #532D80;
+    border-left-width: 5pt;
+}
+
+div.callout-note.callout-style-default>.callout-header {
+    background-color: rgba(112,66,20,0.2);
+}
+
+div.callout-tip.callout-style-default>.callout-header {
+    background-color: rgba(179,30,33,0.2);
+}
+
+div.callout-warning.callout-style-default>.callout-header {
+    background-color: rgba(53,85,78,0.2);
+}
+
+div.callout-important.callout-style-default>.callout-header {
+    background-color: rgba(122,0,75,0.2);
+}
+
+div.callout-caution.callout-style-default>.callout-header {
+    background-color: rgba(83,45,128,0.2);
+}
+
+.callout.callout-style-default {
+    border-left: 5px solid;
+    border-right: 2px solid #dee2e6;
+    border-top: 2px solid #dee2e6;
+    border-bottom: 2px solid #dee2e6;
+}
+
+body {
+    background-color: rgba(236, 233, 240, 0.95);
+}
+
+div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sidebar.sidebar-navigation:not(.rollup) {
+    background-color: rgba(236, 233, 240, 0.95);
+}
+
+figure.figure {
+    border-style: groove;
+    border-color: #c3b7ce;
+    border-width: medium;
+    padding: 10pt;
+    border-radius: 3pt;
+}
