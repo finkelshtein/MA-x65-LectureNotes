@@ -51,11 +51,11 @@ div.callout-caution.callout-style-default>.callout-header {
 }
 
 body {
-    background-color: rgba(236, 233, 240, 0.95);
+    background-color: white;
 }
 
 div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sidebar.sidebar-navigation:not(.rollup) {
-    background-color: rgba(236, 233, 240, 0.95);
+    background-color:  rgba(220, 210, 232, 0.35);
 }
 
 figure.figure {
