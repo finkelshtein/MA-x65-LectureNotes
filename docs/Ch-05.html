@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.23">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -40,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-b61c508e7450d047fcb2c915764c4e75.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -130,9 +130,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">MA-365/M65 Lecture Notes</a> 
     </div>
@@ -238,20 +236,6 @@ window.Quarto = {
 </header>
 
 
-<div id="thm-line" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 5.1 (Line)</strong></span> The equation of any straight line, called a linear equation, can be written as:</p>
-<p><span id="eq-black-scholes"><span class="math display">\[
-y = mx + b
-\tag{5.1}\]</span></span></p>
-</div>
-<p>See <a href="#thm-line" class="quarto-xref">Theorem&nbsp;<span>5.1</span></a>.</p>
-<div id="def-line" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5.1 (Line)</strong></span> The equation of any straight line, called a linear equation, can be written as:</p>
-<p><span id="eq-black-scholes"><span class="math display">\[
-y = mx + b
-\tag{5.2}\]</span></span></p>
-</div>
-<p>See <a href="#def-line" class="quarto-xref">Definition&nbsp;<span>5.1</span></a>.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -268,19 +252,19 @@ N:\Omega\to\mathbb{Z}_+:=\mathbb{N}\cup\{0\}.
 <p>Assume that all claims, <span class="math inline">\(X_1\)</span>, , <span class="math inline">\(X_N\)</span> are i.i.d.r.v. (independent identically distributed random variables).</p>
 <p>The total sum of all claims is then <span id="eq-5.1"><span class="math display">\[
 S=S_N:=X_1+\ldots+X_N,
-\tag{5.3}\]</span></span> where <span class="math inline">\(S:=0\)</span> if <span class="math inline">\(N=0\)</span>.</p>
+\tag{5.1}\]</span></span> where <span class="math inline">\(S:=0\)</span> if <span class="math inline">\(N=0\)</span>.</p>
 <p>Then <span id="eq-5.2"><span class="math display">\[
 F_S(x)=\sum_{n=0}^\infty \mathbb{P}(N=n)\, \mathbb{P}(S\leq x \mid N=n).
-\tag{5.4}\]</span></span></p>
+\tag{5.2}\]</span></span></p>
 <p>Next, <span id="eq-5.3"><span class="math display">\[
 \mathbb{E}(S) = \mathbb{E}(N)\, \mathbb{E}(X);
-\tag{5.5}\]</span></span></p>
+\tag{5.3}\]</span></span></p>
 <p><span id="eq-5.4"><span class="math display">\[
 \mathrm{Var}(S) = \mathbb{E}(N)\, \mathrm{Var}(X) + \mathrm{Var}(N)\, \left( \mathbb{E}(X) \right)^2;
-\tag{5.6}\]</span></span></p>
+\tag{5.4}\]</span></span></p>
 <p><span id="eq-eq1f"><span class="math display">\[
 M_S(t) = M_N\left( \ln M_X(t) \right).
-\tag{5.7}\]</span></span></p>
+\tag{5.5}\]</span></span></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -295,13 +279,13 @@ M_S(t) = M_N\left( \ln M_X(t) \right).
 <div class="callout-body-container callout-body">
 <p>Recall that <span class="math inline">\(N:\Omega\to\mathbb{Z}_+\)</span> has the <strong>Poisson distribution</strong> with parameter <span class="math inline">\(\lambda&gt;0\)</span>, notation: <span class="math inline">\(N\sim Po(\lambda)\)</span>, if <span id="eq-5.6"><span class="math display">\[
 \mathbb{P}(N=n)=\frac{\lambda^n}{n!}e^{-\lambda}, \qquad n\in\mathbb{Z}_+.
-\tag{5.8}\]</span></span></p>
+\tag{5.6}\]</span></span></p>
 <p>Then <span id="eq-5.7"><span class="math display">\[
 \mathbb{E}(N)=\mathrm{Var}(N)=\lambda,
-\tag{5.9}\]</span></span></p>
+\tag{5.7}\]</span></span></p>
 <p><span id="eq-mgfpo"><span class="math display">\[
 M_N(t)= \exp\bigl( \lambda(e^t-1) \bigr).
-\tag{5.10}\]</span></span></p>
+\tag{5.8}\]</span></span></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -316,13 +300,13 @@ M_N(t)= \exp\bigl( \lambda(e^t-1) \bigr).
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\(N\sim Po(\lambda)\)</span>, let <span class="math inline">\(X_1, \ldots, X_N\)</span> are i.i.d.r.v., let <span class="math inline">\(m_k:=m_{k,X}\)</span>. Then <span class="math inline">\(S=X_1+\ldots+X_N\)</span> has the <strong>compound Poisson distribution</strong> with the parameter <span class="math inline">\(\lambda\)</span> and <span id="eq-5.9"><span class="math display">\[
 \mathbb{E}(S)=\lambda m_1,
-\tag{5.11}\]</span></span></p>
+\tag{5.9}\]</span></span></p>
 <p><span id="eq-5.10"><span class="math display">\[
 \mathrm{Var}(S)=\lambda m_2,
-\tag{5.12}\]</span></span></p>
+\tag{5.10}\]</span></span></p>
 <p><span id="eq-mgfcpo"><span class="math display">\[
 M_S(t)= \exp\bigl( \lambda (M_X(t)-1) \bigr).
-\tag{5.13}\]</span></span></p>
+\tag{5.11}\]</span></span></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -341,9 +325,9 @@ S_i = X_1^{(i)}+\ldots+X_{N_i}^{(i)},
 \mathbf{S}:=S_1+\ldots+S_m
 \]</span> is a compound Poisson random variable with the parameter <span id="eq-5.12"><span class="math display">\[
 \Lambda=\lambda_1+\ldots+\lambda_m
-\tag{5.14}\]</span></span> and the CDF of the single claim <span id="eq-5.13"><span class="math display">\[
+\tag{5.12}\]</span></span> and the CDF of the single claim <span id="eq-5.13"><span class="math display">\[
 F(x)=\frac{1}{\Lambda} \bigl( \lambda_1 F_1(x)+\ldots+\lambda_m F_m(x) \bigr),
-\tag{5.15}\]</span></span> i.e. <span class="math display">\[
+\tag{5.13}\]</span></span> i.e. <span class="math display">\[
 S=Y_1+\ldots+Y_N
 \]</span> for i.i.d.r.v. <span class="math inline">\(\{Y_j\}\)</span> with the CDF <span class="math inline">\(F(x)\)</span>, and <span class="math inline">\(N\sim Po(\Lambda)\)</span>.</p>
 </div>
@@ -360,16 +344,16 @@ S=Y_1+\ldots+Y_N
 <div class="callout-body-container callout-body">
 <p><span class="math inline">\(N\sim Bin(n,p)\)</span>, <span class="math inline">\(n\in\mathbb{N}\)</span>, <span class="math inline">\(p\in[0,1]\)</span>, iff, for <span class="math inline">\(0\leq k\leq n\)</span>, <span id="eq-5.14"><span class="math display">\[
 \mathbb{P}(N=k)=\binom{n}{k} p^k(1-p)^{n-k}.
-\tag{5.16}\]</span></span> Then <span id="eq-5.15"><span class="math display">\[
+\tag{5.14}\]</span></span> Then <span id="eq-5.15"><span class="math display">\[
 \begin{gathered}
 \mathbb{E}(N) = np, \qquad \mathrm{Var}(N)=np(1-p), \\ M_N(t)=(pe^t+1-p)^n.
 \end{gathered}
-\tag{5.17}\]</span></span> We can define <span class="math inline">\(S=X_1+\ldots+X_N\)</span> for i.i.d.r.v. <span class="math inline">\(X_i\)</span>, and the distribution of <span class="math inline">\(S\)</span> is called the <strong>compound binomial distribution</strong>. Then <span class="math display">\[
+\tag{5.15}\]</span></span> We can define <span class="math inline">\(S=X_1+\ldots+X_N\)</span> for i.i.d.r.v. <span class="math inline">\(X_i\)</span>, and the distribution of <span class="math inline">\(S\)</span> is called the <strong>compound binomial distribution</strong>. Then <span class="math display">\[
 \mathbb{E}(S)=np m_{1,X}, \quad \mathrm{Var}(S)= np m_{2,X} -np^2 m_{1,X}^2,
 \]</span></p>
 <p><span id="eq-5.16"><span class="math display">\[
 M_S(t) = (pM_X(t)+1-p)^n.
-\tag{5.18}\]</span></span></p>
+\tag{5.16}\]</span></span></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -387,7 +371,7 @@ M_S(t) = (pM_X(t)+1-p)^n.
 <li><p>Consider the case when the reinsurance is applied to each individual claim.</p></li>
 <li><p>Let <span class="math inline">\(Y_i\)</span> be the amount paid by the main insurer for the claim <span class="math inline">\(X_i\)</span>, and <span class="math inline">\(Z_i\)</span> be the claim paid by the reinsurer, so <span class="math inline">\(X_i=Y_i+Z_i\)</span>.</p></li>
 <li><p>Let <span class="math inline">\(S_I=Y_1+\ldots+Y_N\)</span> be the aggregated claim amount paid by the insurer, and <span class="math inline">\(S_R=Z_1+\ldots+Z_N\)</span> be the aggregated claim amount paid by the reinsurer.</p></li>
-<li><p>Of course, formulas (<a href="#eq-eq1f" class="quarto-xref"><span>5.7</span></a>) are still true if we replace there <span class="math inline">\(S,X\)</span> by <span class="math inline">\(S_I,Y\)</span> or by <span class="math inline">\(S_R,Z\)</span>, respectively.</p></li>
+<li><p>Of course, formulas (<a href="#eq-eq1f" class="quarto-xref"><span>5.5</span></a>) are still true if we replace there <span class="math inline">\(S,X\)</span> by <span class="math inline">\(S_I,Y\)</span> or by <span class="math inline">\(S_R,Z\)</span>, respectively.</p></li>
 <li><p>Note that, for the <strong>individual excess of loss reinsurance</strong>, the reinsurer pays <span class="math inline">\(Z_i\)</span> only if <span class="math inline">\(Z_i=X_i-M&gt;0\)</span>. We can introduce <span class="math inline">\(J_i=1\)</span> if <span class="math inline">\(X_i&gt;M\)</span> and <span class="math inline">\(J_i=0\)</span> otherwise. Then <span class="math display">\[
 N_R:=J_1+\ldots+J_N
 \]</span> is the number of claims paid by the reinsurer.</p></li>
@@ -397,13 +381,13 @@ N_R:=J_1+\ldots+J_N
 M_{J_i}(t)=\mathbb{E}(e^{t J_i})= \rho e^t +(1-p)e^0 = \rho e^t +1-p,
 \]</span> and for the compound random variable <span class="math inline">\(N_R\)</span>, <span id="eq-NRdistr"><span class="math display">\[
 M_{N_R}(t)=M_N\bigl(\ln (\rho e^t +1-p)\bigr).
-\tag{5.19}\]</span></span></p></li>
+\tag{5.17}\]</span></span></p></li>
 <li><p>Let <span class="math inline">\(\{i_1,\ldots,i_{N_R}\}\subset\{1,\ldots, N\}\)</span> be indexes such that <span class="math inline">\(X_{i_k}&gt;M\)</span> for <span class="math inline">\(1\leq k\leq N_R\)</span>, and set <span class="math inline">\(W_k:=X_{i_k}-M\)</span>. Then there is another representation <span id="eq-5.18"><span class="math display">\[
 S_R = W_1+\ldots + W_{N_R}.
-\tag{5.20}\]</span></span></p></li>
-<li><p>If, additionally, <span class="math inline">\(N\sim Po(\lambda)\)</span> for a <span class="math inline">\(\lambda&gt;0\)</span>, then (<a href="#eq-NRdistr" class="quarto-xref"><span>5.19</span></a>) reads, by (<a href="#eq-mgfpo" class="quarto-xref"><span>5.10</span></a>) or (<a href="#eq-mgfcpo" class="quarto-xref"><span>5.13</span></a>), <span class="math display">\[
+\tag{5.18}\]</span></span></p></li>
+<li><p>If, additionally, <span class="math inline">\(N\sim Po(\lambda)\)</span> for a <span class="math inline">\(\lambda&gt;0\)</span>, then (<a href="#eq-NRdistr" class="quarto-xref"><span>5.17</span></a>) reads, by (<a href="#eq-mgfpo" class="quarto-xref"><span>5.8</span></a>) or (<a href="#eq-mgfcpo" class="quarto-xref"><span>5.11</span></a>), <span class="math display">\[
 M_{N_R}(t) =\exp\Bigl(\lambda \bigl(M_{J_i}(t)-1\bigr)\Bigr) =\exp\bigl(\rho\lambda (e^t-1)\bigr),
-\]</span> i.e.&nbsp;<span class="math inline">\(N_R\sim Po(\rho\lambda)\)</span>, by (<a href="#eq-mgfpo" class="quarto-xref"><span>5.10</span></a>). (That is nothing but the <strong>thinning property</strong> of the Poisson distribution.)</p></li>
+\]</span> i.e.&nbsp;<span class="math inline">\(N_R\sim Po(\rho\lambda)\)</span>, by (<a href="#eq-mgfpo" class="quarto-xref"><span>5.8</span></a>). (That is nothing but the <strong>thinning property</strong> of the Poisson distribution.)</p></li>
 </ul>
 </div>
 </div>
@@ -827,7 +811,7 @@ M_{N_R}(t) =\exp\Bigl(\lambda \bigl(M_{J_i}(t)-1\bigr)\Bigr) =\exp\bigl(\rho\lam
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© Copyright 2025, Dmitri Finkelshtein</p>
+<p>© Copyright 2026, Dmitri Finkelshtein</p>
 </div>   
     <div class="nav-footer-center">
 <p>MA-365/M65: Lecture Notes</p>
