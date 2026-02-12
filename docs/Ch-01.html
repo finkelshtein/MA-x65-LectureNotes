@@ -1558,7 +1558,7 @@ L(\theta) = \ln f_X(x_1\mid\theta)+ \ldots + \ln f_X(x_n\mid\theta),
 <div class="callout-body-container callout-body">
 <p>Recall that <span class="math inline">\(X:\Omega\to\mathbb{Z}_+\)</span> has the <strong>Poisson distribution</strong> with parameter <span class="math inline">\(\lambda&gt;0\)</span>, notation: <span class="math inline">\(X\sim Po(\lambda)\)</span>, if <span id="eq-match1.84"><span class="math display">\[
   \mathbb{P}(X=n)=\frac{\lambda^n}{n!}e^{-\lambda}, \qquad n\in\mathbb{Z}_+.
-\tag{1.84}\]</span></span> Then <span id="eq-match1.85"><span class="math display">\[
+\tag{1.84}\]</span></span> Then <span id="eq-EVarPois"><span class="math display">\[
   \mathbb{E}(X)=\mathrm{var}(X)=\lambda,
 \tag{1.85}\]</span></span> <span id="eq-mgfpo"><span class="math display">\[
   M_X(t)= \exp\bigl( \lambda(e^t-1) \bigr).
@@ -1658,7 +1658,7 @@ L(\lambda)&amp;= \ln \mathcal L(\lambda)
 <p>Then, we consider the first <span class="math inline">\(k\)</span> moments of the random variable <span class="math inline">\(X\)</span> (i.e.&nbsp;the moments of the population): <span class="math display">\[
 m_j = \mathbb{E}(X^j\mid \theta), \qquad 1\leq j\leq k.
 \]</span></p>
-<p>Next, for the given data <span class="math inline">\(x_1,\ldots,x_n\)</span>, we consider <span class="math inline">\(k\)</span> averaged moments (i.e.&nbsp;the moments of the sample): <span class="math display">\[
+<p>Next, for the given data <span class="math inline">\(x_1,\ldots,x_n\)</span>, we consider <span class="math inline">\(k\)</span> average moments (i.e.&nbsp;the moments of the sample): <span class="math display">\[
 \overline{m}_j = \frac{1}{n}\sum_{l=1}^n x_l ^j, \qquad 1\leq j\leq k.
 \]</span></p>
 <p>After this, we need to equate <span class="math inline">\(k\)</span> quantities: <span class="math display">\[
