@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Dmitri Finkelshtein">
 <meta name="description" content="Lecture Notes for module MA-365/M65: Risk and Survival Models">
 
-<title>MA-365/M65 Lecture Notes</title>
+<title>3&nbsp; Extreme value theory – MA-365/M65 Lecture Notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -35,7 +34,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Ch-01.html" rel="next">
+<link href="./Ch-04.html" rel="next">
+<link href="./Ch-02.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -75,9 +75,38 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="MA-365/M65 Lecture Notes">
+<meta property="og:title" content="3&nbsp; Extreme value theory – MA-365/M65 Lecture Notes">
 <meta property="og:description" content="Lecture Notes for module MA-365/M65: Risk and Survival Models">
 <meta property="og:site_name" content="MA-365/M65 Lecture Notes">
 </head>
@@ -91,7 +120,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ch-03.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Extreme value theory</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -118,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
@@ -136,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Ch-03.html" class="sidebar-item-text sidebar-link">
+  <a href="./Ch-03.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Extreme value theory</span></span></a>
   </div>
 </li>
@@ -157,24 +186,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">MA-365/M65 Lecture Notes</h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Extreme value theory</span></h1>
 </div>
 
-<div>
-  <div class="description">
-    Lecture Notes for module MA-365/M65: Risk and Survival Models
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Dmitri Finkelshtein </p>
-          </div>
-  </div>
     
   
     
@@ -185,13 +203,97 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level1 unnumbered">
-<h1 class="unnumbered">Overview</h1>
-<p>Use the left panel to navigate the website.</p>
-<p>Use search field on the left to find all instances of a term in the Lecture Notes.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>2.1 Maximum values
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X_1,\ldots,X_n\)</span> be independent identically distributed random variables (i.i.d. r.v.) with the cumulative distribution function <span class="math inline">\(F(x)=F_X(x)\)</span>. Denote <span id="eq-2.1"><span class="math display">\[
+X_M=X_{M,n}= \max\{X_1,\ldots,X_n\}.
+\tag{3.1}\]</span></span> Then <span id="eq-2.2"><span class="math display">\[
+\begin{aligned}
+\mathbb{P}(X_M\leq x) &amp;= \mathbb{P}(X_1\leq x, \ldots, X_n\leq x) \\
+&amp;= \mathbb{P}(X_1\leq x) \ldots \mathbb{P}(X_n\leq x) \\
+&amp;= \bigl(\mathbb{P}(X\leq x)\bigr)^n = \bigl( F(x) \bigr)^n.
+\end{aligned}
+\tag{3.2}\]</span></span> We can attempt to standardise the values of <span class="math inline">\(X_M\)</span>: consider, for some <span class="math inline">\(\alpha_n&gt;0\)</span> and <span class="math inline">\(\beta_n\in\mathbb{R}\)</span>, <span id="eq-2.3"><span class="math display">\[
+\begin{aligned}
+\mathbb{P}\biggl(\frac{X_M-\alpha_n}{\beta_n}\leq x\biggr) &amp;=\mathbb{P}(X_M\leq \beta_n x + \alpha_n)\\
+&amp; = \bigl(F(\beta_n x + \alpha_n)\bigr)^n.
+\end{aligned}
+\tag{3.3}\]</span></span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>2.2 Theorem: Extreme value theorem (Fisher–Tippett–Gnedenko theorem)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If there exists <span class="math inline">\(\alpha_n&gt;0\)</span> and <span class="math inline">\(\beta_n\)</span>, such that there exists <span id="eq-2.4"><span class="math display">\[
+G(x):= \lim_{n\to\infty}\bigl(F(\beta_n x + \alpha_n)\bigr)^n
+\tag{3.4}\]</span></span> such that <span class="math inline">\(G(x)\)</span> is a non-degenerate cumulative distribution function (i.e.&nbsp;<span class="math inline">\(G(x)\)</span> is <strong>not</strong> simultaneously identically equal to <span class="math inline">\(0\)</span> for all <span class="math inline">\(x&lt;x_1\)</span> and identically equal to <span class="math inline">\(1\)</span> for all <span class="math inline">\(x&gt;x_1\)</span> with some <span class="math inline">\(x_1\)</span>), then this limiting function <span class="math inline">\(G(x)\)</span> may have <strong>only one of the two following forms</strong> :</p>
+<ul>
+<li><p>either, for some <span class="math inline">\(\gamma\neq0\)</span>, <span class="math inline">\(a,b\in\mathbb{R}\)</span> <span id="eq-2.5"><span class="math display">\[
+G(x):=G_\gamma(x) := \exp\Biggl(-\biggl(1+\gamma \frac{x-a}{b} \biggr)^{-\frac{1}{\gamma}}\Biggr),
+\tag{3.5}\]</span></span></p></li>
+<li><p>or <span id="eq-2.6"><span class="math display">\[
+G(x):=G_0(x):=\exp\Biggl(-\exp\biggl(-\frac{x-a}{b} \biggr)\Biggr).
+\tag{3.6}\]</span></span></p></li>
+</ul>
+<p>Note that, for <span class="math inline">\(\gamma&lt;0\)</span>, <span class="math inline">\(G_\gamma(x)\)</span> corresponds to a Weibull distribution. For <span class="math inline">\(\gamma&gt;0\)</span>, the corresponding distribution is called Fr'echet distribution, and for <span class="math inline">\(\gamma=0\)</span>, it’s called Gumbel distribution.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 33%">
+<col style="width: 19%">
+<col style="width: 33%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(G(x)\)</span></td>
+<td>Weibull<br>
+<span class="math inline">\(\gamma&lt;0\)</span></td>
+<td>Gumbel<br>
+<span class="math inline">\(\gamma=0\)</span></td>
+<td>Fr’echet<br>
+<span class="math inline">\(\gamma&gt;0\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(F(x)\)</span></td>
+<td>Uniform<br>
+Beta</td>
+<td>Exponential<br>
+Gamma<br>
+Log-normal<br>
+Normal<br>
+Weibull</td>
+<td>Burr<br>
+Pareto<br>
+<span class="math inline">\(t\)</span><br>
+Log-gamma</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(x\)</span></td>
+<td><span class="math inline">\(x&lt;a-\dfrac{b}{\gamma}\)</span></td>
+<td><span class="math inline">\(\mathbb{R}\)</span></td>
+<td><span class="math inline">\(x&gt;a-\dfrac{b}{\gamma}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -596,10 +698,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./Ch-02.html" class="pagination-link" aria-label="Risk models">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Risk models</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Ch-01.html" class="pagination-link" aria-label="Loss distributions">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Loss distributions</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Ch-04.html" class="pagination-link" aria-label="Copulas">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Copulas</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
