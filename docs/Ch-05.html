@@ -800,7 +800,7 @@ X_t:=X(t)=X(t,\omega).
 <li>Let <span class="math inline">\(q=1\)</span>, i.e.&nbsp;<span class="math inline">\(\{X_t\}\)</span> is a weakly stationary <span class="math inline">\(ARMA(p,1)\)</span> process. Then (<a href="#eq-arma-yw-kgtq" class="quarto-xref"><span>5.24</span></a>) holds for all <span class="math inline">\(s\geq2\)</span>, &nbsp;and, moreover, for <span class="math inline">\(\beta:=\beta_1\)</span>, <span class="math inline">\(\mathrm{Var}\,(e_t)=\sigma^2\)</span>,</li>
 </ol>
 <p><span id="eq-arma-p1-yw0"><span class="math display">\[
-    \gamma_0=\alpha_1\gamma_1+\cdots+\alpha_p\gamma_p+(1+\beta^2)\sigma^2,
+    \gamma_0=\alpha_1\gamma_1+\cdots+\alpha_p\gamma_p+(1+\alpha_1\beta+\beta^2)\sigma^2,
    \tag{5.25}\]</span></span></p>
 <p><span id="eq-arma-p1-yw1"><span class="math display">\[
     \gamma_1=\alpha_1\gamma_0+\cdots+\alpha_p\gamma_{p-1}+\beta\sigma^2
@@ -811,7 +811,7 @@ X_t:=X(t)=X(t,\omega).
   \]</span></li>
 </ol>
 <p>one has <span id="eq-arma-p11-yw0"><span class="math display">\[
-    \gamma_0=\alpha\gamma_1+(1+\beta^2)\sigma^2,
+    \gamma_0=\alpha\gamma_1+(1+\alpha\beta+\beta^2)\sigma^2,
    \tag{5.27}\]</span></span></p>
 <p><span id="eq-arma-p11-yw1"><span class="math display">\[
     \gamma_1=\alpha\gamma_0+\beta\sigma^2,
