@@ -8,7 +8,7 @@
 
 <meta name="description" content="Lecture Notes for module MA-365/M65: Risk and Survival Models">
 
-<title>3&nbsp; Extreme value theory – MA-365/M65 Lecture Notes</title>
+<title>6&nbsp; Survival models – MA-365/M65 Lecture Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Ch-04.html" rel="next">
-<link href="./Ch-02.html" rel="prev">
+<link href="./Ch-05.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -101,7 +100,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="3&nbsp; Extreme value theory – MA-365/M65 Lecture Notes">
+<meta property="og:title" content="6&nbsp; Survival models – MA-365/M65 Lecture Notes">
 <meta property="og:description" content="Lecture Notes for module MA-365/M65: Risk and Survival Models">
 <meta property="og:site_name" content="MA-365/M65 Lecture Notes">
 </head>
@@ -115,7 +114,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ch-03.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Extreme value theory</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ch-06.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Survival models</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -160,7 +159,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Ch-03.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Ch-03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Extreme value theory</span></span></a>
   </div>
 </li>
@@ -178,7 +177,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Ch-06.html" class="sidebar-item-text sidebar-link">
+  <a href="./Ch-06.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Survival models</span></span></a>
   </div>
 </li>
@@ -193,7 +192,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Extreme value theory</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Survival models</span></h1>
 </div>
 
 
@@ -216,24 +215,220 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-2.1 Maximum values
+6.1 Actuarial notations
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Let <span class="math inline">\(X_1,\ldots,X_n\)</span> be independent identically distributed random variables (i.i.d. r.v.) with the cumulative distribution function <span class="math inline">\(F(x)=F_X(x)\)</span>. Denote <span id="eq-2.1"><span class="math display">\[
-X_M=X_{M,n}= \max\{X_1,\ldots,X_n\}.
-\tag{3.1}\]</span></span> Then <span id="eq-2.2"><span class="math display">\[
+<ul>
+<li><p>The <strong>future lifetime after age <span class="math inline">\(x\)</span></strong>, for <span class="math inline">\(x\geq0\)</span>, is a random variable <span class="math inline">\(T_x:\Omega\to [0,\infty)\)</span>.</p></li>
+<li><p>The distribution function of <span class="math inline">\(T_x\)</span> is denoted <span id="eq-tqx"><span class="math display">\[
+  {}_{t}q_{x}:=F_x(t) :=\mathbb{P}(T_x\leq t).
+\tag{6.1}\]</span></span></p></li>
+<li><p>The survival function of <span class="math inline">\(T_x\)</span> is denoted <span id="eq-tpx"><span class="math display">\[
+  {}_{t}p_{x}:=S_x(t) :=\mathbb{P}(T_x&gt; t).
+\tag{6.2}\]</span></span></p></li>
+<li><p>Since <span class="math inline">\(S_x(t)=1-F_x(t)\)</span>, we have <span id="eq-tpx=1-tqx"><span class="math display">\[
+  {}_{t}p_{x}=1-{}_{t}q_{x}.
+\tag{6.3}\]</span></span></p></li>
+<li><p>For <span class="math inline">\(t=1\)</span>, we omit the first indexes: <span id="eq-t=1"><span class="math display">\[
+  q_{x}:={}_{1}q_{x}, \qquad \p{x}:={}_{1}p_{x}.
+\tag{6.4}\]</span></span></p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+6.2 Consistency property
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>For any <span class="math inline">\(t,s\geq0\)</span>, <span class="math display">\[
+  \begin{aligned}
+    \mathbb{P}(T_x&gt; t+s)&amp;=\mathbb{P}(T_x&gt; t+s\mid T_x&gt;s)\mathbb{P}(T_x&gt; s)\\
+    &amp;= \mathbb{P}(T_{x+s}&gt;t)\mathbb{P}(T_x&gt; s).
+  \end{aligned}
+\]</span> Therefore, <span id="eq-consist"><span class="math display">\[
+  {}_{s+t}p_{x}={}_{s}p_{x}\cdot {}_{t}p_{x+s}={}_{t}p_{x}\cdot {}_{s}p_{x+t}
+\tag{6.5}\]</span></span></p></li>
+<li><p>For any <span class="math inline">\(t,s\geq0\)</span>, <span class="math display">\[  
+  \begin{aligned}
+    &amp;\quad \mathbb{P}(T_x\leq s+t)\\&amp;=\mathbb{P}(T_x\leq s)+\mathbb{P}(s&lt;T_x\leq s+t)\\
+    &amp;=\mathbb{P}(T_x\leq s)+\mathbb{P}(s&lt;T_x\le s+t\mid T_x&gt;s)\mathbb{P}(T_x&gt;s)\\
+    &amp;=\mathbb{P}(T_x\leq s)+\mathbb{P}(T_{x+s}\le t)\mathbb{P}(T_x&gt;s).
+  \end{aligned}
+\]</span></p>
+<p>Therefore, <span id="eq-consq"><span class="math display">\[
+    {}_{t+s}q_{x}={}_{s}q_{x}+{}_{s}p_{x}\cdot{}_{t}q_{x+s}
+\tag{6.6}\]</span></span></p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+6.3 The force of mortality
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>The <strong>force of mortality</strong> <span class="math inline">\(\mu_x\)</span> represents the instantaneous rate of mortality at a certain age <span class="math inline">\(x\geq0\)</span>: <span id="eq-muxq"><span class="math display">\[
+  \mu_x := \lim_{h\to0} \frac{1}{h} \mathbb{P}(T_x\leq h).
+\tag{6.7}\]</span></span></p></li>
+<li><p>Since <span class="math inline">\(F_x(0)=0\)</span>, we can rewrite <span id="eq-eafgsdqt"><span class="math display">\[
+  \mu_x =  \lim_{h\to0} \frac{1}{h} \bigl( F_x(h)-F_x(0) \bigr)
+  =F_x'(0).
+\tag{6.8}\]</span></span></p></li>
+<li><p>The term ``force of mortality’’ is mainly used in actuarial science. In engineering, the term is in use, and in statistics, it is called the .</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+6.4 Integral representation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By the definition (<a href="#eq-muxq" class="quarto-xref"><span>6.7</span></a>), for any <span class="math inline">\(x\geq0\)</span>, <span class="math display">\[
+  \mu_x=\lim_{h\to0+}\frac{1}{h}\cdot {}_{h}q_{x}\geq0.
+\]</span></p>
+<p>Then, by the consistency property (<a href="#eq-consist" class="quarto-xref"><span>6.5</span></a>), <span class="math display">\[
 \begin{aligned}
-\mathbb{P}(X_M\leq x) &amp;= \mathbb{P}(X_1\leq x, \ldots, X_n\leq x) \\
-&amp;= \mathbb{P}(X_1\leq x) \ldots \mathbb{P}(X_n\leq x) \\
-&amp;= \bigl(\mathbb{P}(X\leq x)\bigr)^n = \bigl( F(x) \bigr)^n.
+  \frac{d}{dt}{}_{t}p_{x}&amp;=\lim_{h\to0+}\frac{1}{h}\bigl({}_{t+h}p_{x}-{}_{t}p_{x}\bigr)\notag\\
+  &amp;= \lim_{h\to0+}\frac{1}{h}\bigl({}_{t}p_{x}\cdot{}_{h}p_{x+t}-{}_{t}p_{x}\bigr)\notag\\
+  &amp;=-{}_{t}p_{x}\lim_{h\to0+}\frac{1}{h}\cdot{}_{h}q_{x+t}\notag\\
+  &amp;= -{}_{t}p_{x}\cdot \mu_{x+t},
 \end{aligned}
-\tag{3.2}\]</span></span> We can attempt to standardise the values of <span class="math inline">\(X_M\)</span>: consider, for some <span class="math inline">\(\alpha_n&gt;0\)</span> and <span class="math inline">\(\beta_n\in\mathbb{R}\)</span>, <span id="eq-2.3"><span class="math display">\[
-\begin{aligned}
-\mathbb{P}\biggl(\frac{X_M-\alpha_n}{\beta_n}\leq x\biggr) &amp;=\mathbb{P}(X_M\leq \beta_n x + \alpha_n)\\
-&amp; = \bigl(F(\beta_n x + \alpha_n)\bigr)^n.
-\end{aligned}
-\tag{3.3}\]</span></span></p>
+\]</span></p>
+<p>hence, <span id="eq-intermed"><span class="math display">\[
+  \frac{d}{dt}{}_{t}p_{x}=-{}_{t}p_{x}\cdot \mu_{x+t}.
+\tag{6.9}\]</span></span></p>
+<p>Solving this differential equation on <span class="math inline">\({}_{t}p_{x}\)</span>, we get <span id="eq-tpxInt1"><span class="math display">\[
+  \begin{aligned}
+    {}_{t}p_{x} &amp;= \exp\biggl(-\int_0^t \mu_{x+s}\,ds \biggr)\\
+            &amp;= \exp\biggl(-\int_x^{x+t} \mu_u\,du \biggr).
+   \end{aligned}
+\tag{6.10}\]</span></span></p>
+<p>Also, by (<a href="#eq-intermed" class="quarto-xref"><span>6.9</span></a>), <span id="eq-ddtq"><span class="math display">\[
+  \frac{d}{dt}{}_{t}q_{x}={}_{t}p_{x}\cdot \mu_{x+t},
+\tag{6.11}\]</span></span> hence, since <span class="math inline">\({}_{0}q_{x}=0\)</span>, <span id="eq-qxexp"><span class="math display">\[
+  {}_{t}q_{x}= \int_0^t {}_{s}p_{x} \cdot \mu_{x+s}\,ds.
+\tag{6.12}\]</span></span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+6.5 Example: Constant force of mortality assumption
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If the force of mortality is constant between ages <span class="math inline">\(x\)</span> and <span class="math inline">\(x+t\)</span>: <span id="eq-t111"><span class="math display">\[
+    \mu_{x+s} = \mu_x, \quad s\in[0,t],
+\tag{6.13}\]</span></span> then, by (<a href="#eq-tpxInt1" class="quarto-xref"><span>6.10</span></a>), <span id="eq-constfom"><span class="math display">\[
+  {}_{t}p_{x} = e^{-t\mu_x} = (p_x)^t.
+\tag{6.14}\]</span></span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+6.6 Uniform distribution of deaths assumption
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Deaths are said to be <strong>uniformly distributed between ages</strong> <span class="math inline">\(x\)</span> <strong>and</strong> <span class="math inline">\(x+1\)</span> if, conditional on death occurring within the year, the time of death is uniformly distributed on <span class="math inline">\((0,1)\)</span>, i.e. <span class="math display">\[
+  T_x \mid (T_x\leq 1)\sim U(0,1).
+\]</span></p></li>
+<li><p>Equivalently, for <span class="math inline">\(t\in[0,1]\)</span>, <span class="math display">\[
+  P(T_x\leq t\mid T_x\leq 1)=t,
+\]</span></p>
+<p>therefore,</p>
+<p><span class="math display">\[
+  {}_{t}q_{x} = t\,q_{x}, \qquad t\in[0,1].
+\]</span></p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+6.7 Remark
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For the constant force of mortality, <span id="eq-teqwui21y4"><span class="math display">\[
+  {}_{t}q_{x}=1 - e^{-t\mu_x} {\color{red}\neq} t
+    (1-e^{-\mu_x})= t q_x.
+\tag{6.15}\]</span></span></p>
+<p>However, if <span class="math inline">\(\mu_x\approx 0\)</span>, then <span class="math inline">\({}_{t}q_{x}\approx t\mu_x \approx t q_x\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+6.8 Lemma: Tail integral formula
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X\geq0\)</span> be a continuous r.v. Then</p>
+<p><span id="eq-3rgs4y2"><span class="math display">\[
+  \mathbb{E}(X)=\int_0^\infty P(X&gt;t)dt.
+\tag{6.16}\]</span></span></p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(f(t)=f_X(t)\)</span> be the PDF of <span class="math inline">\(X\)</span>. Then</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    \int_0^\infty P(X&gt;t)dt&amp;=
+    \int_0^\infty \int_t^\infty f(s)ds\, dt
+    \\&amp;= \int_0^\infty f(s) \int_0^s dt\, ds\\
+    &amp;= \int_0^\infty s f(s)ds =\mathbb{E}(X),
+  \end{aligned}
+\]</span></p>
+<p>that proves the statement.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+6.9 Complete expectation of life
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>expected future lifetime</strong> after age <span class="math inline">\(x\geq0\)</span> is defined as follows: <span id="eq-33gsd43t6g"><span class="math display">\[
+  \mathring{e}_x: = \mathbb{E}(T_x).
+\tag{6.17}\]</span></span></p>
+<p>By the tail integral formula, we have then <span id="eq-33gsd43t6gqrwe32"><span class="math display">\[
+  \mathring{e}_x = \mathbb{E}(T_x)=\int_0^\infty  {}_{t}p_{x} \,dt.
+\tag{6.18}\]</span></span></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
@@ -242,61 +437,162 @@ X_M=X_{M,n}= \max\{X_1,\ldots,X_n\}.
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-2.2 Theorem: Extreme value theorem (Fisher–Tippett–Gnedenko theorem)
+6.10 Theorem: Monotonicity of the lifetime
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If there exists <span class="math inline">\(\alpha_n&gt;0\)</span> and <span class="math inline">\(\beta_n\)</span>, such that there exists <span id="eq-2.4"><span class="math display">\[
-G(x):= \lim_{n\to\infty}\bigl(F(\beta_n x + \alpha_n)\bigr)^n
-\tag{3.4}\]</span></span> such that <span class="math inline">\(G(x)\)</span> is a non-degenerate cumulative distribution function (i.e.&nbsp;<span class="math inline">\(G(x)\)</span> is <strong>not</strong> simultaneously identically equal to <span class="math inline">\(0\)</span> for all <span class="math inline">\(x&lt;x_1\)</span> and identically equal to <span class="math inline">\(1\)</span> for all <span class="math inline">\(x&gt;x_1\)</span> with some <span class="math inline">\(x_1\)</span>), then this limiting function <span class="math inline">\(G(x)\)</span> may have <strong>only one of the two following forms</strong> :</p>
+<p>Function <span class="math inline">\(x+\mathring{e}_x\)</span> is increasing in <span class="math inline">\(x\)</span>, i.e.</p>
+<p><span id="eq-s32xx4ty3"><span class="math display">\[
+  x+\mathring{e}_x&lt;y+\mathring{e}_y, \quad x&lt;y.
+\tag{6.19}\]</span></span></p>
+<p>In other words, the expected age at death <span class="math inline">\(x+\mathring{e}_x\)</span> increases as the attained age <span class="math inline">\(x\)</span> increases.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By (<a href="#eq-tpxInt1" class="quarto-xref"><span>6.10</span></a>),</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    \frac{d}{dx}\mathring{e}_x &amp;=  \int_0^\infty \frac{d}{dx} {}_{t}p_{x}\,dt\\
+    &amp;=  \int_0^\infty \frac{d}{dx} \exp\biggl(-\int_{x}^{x+t}\mu_u\,du\biggr)\,dt\\
+    &amp;=\int_0^\infty \exp\biggl(-\int_{x}^{x+t}\mu_u\,du\biggr)\cdot\frac{d}{dx}\biggl(-\int_{x}^{x+t}\mu_u\,du\biggr) \,dt
+    \\&amp;=\int_0^\infty {}_{t}p_{x}\cdot\bigl(\mu_{x}-\mu_{x+t}\bigr) \,dt
+    \\
+    &amp;=\mu_x \mathring{e}_x +\int_0^\infty\frac{d}{dt}{}_{t}p_{x}  \,dt\\
+    &amp; = \mu_x \mathring{e}_x-1,
+\end{aligned}
+\]</span></p>
+<p>where we also used (<a href="#eq-intermed" class="quarto-xref"><span>6.9</span></a>). Therefore,</p>
+<p><span class="math display">\[
+  \frac{d}{dx} \left( \mathring{e}_x + x \right)  = \mu_x \mathring{e}_x&gt;0,
+\]</span></p>
+<p>that proves the statement.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+6.11 Remark
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The previous statement may be confusing if we look at equalities <span class="math inline">\(T(x):=x+T_x\)</span> and <span class="math inline">\(T(y):=y+T_y\)</span>.<br>
+Both describes the age of death of a life,<br>
+so we would expect that <span class="math inline">\(\mathbb{E}(T_x)=x+\mathring{e}_x\)</span> and <span class="math inline">\(\mathbb{E}(T_y)=y+\mathring{e}_y\)</span> should be equal. Apparently, <span class="math inline">\(T(x)\)</span> and <span class="math inline">\(T(y)\)</span> are two different random variables: e.g.&nbsp;<span class="math inline">\(T(x)=x+T_x\)</span> describes the random lifetime (of a newborn person) conditional that the person was alive at age <span class="math inline">\(x\)</span>, it is measurable w.r.t. <span class="math inline">\(\sigma\)</span>-algebra generated by all ages <span class="math inline">\(\leq x\)</span>. For <span class="math inline">\(y&gt;x\)</span>, <span class="math inline">\(T(x)\)</span> is not measurable w.r.t. events generated by times on <span class="math inline">\((x,y]\)</span>. Hence, <span class="math inline">\(T(x)\neq T(y)\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+6.12 Total lifetime
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li><p>either, for some <span class="math inline">\(\gamma\neq0\)</span>, <span class="math inline">\(a,b\in\mathbb{R}\)</span> <span id="eq-2.5"><span class="math display">\[
-G(x):=G_\gamma(x) := \exp\Biggl(-\biggl(1+\gamma \frac{x-a}{b} \biggr)^{-\frac{1}{\gamma}}\Biggr),
-\tag{3.5}\]</span></span></p></li>
-<li><p>or <span id="eq-2.6"><span class="math display">\[
-G(x):=G_0(x):=\exp\Biggl(-\exp\biggl(-\frac{x-a}{b} \biggr)\Biggr).
-\tag{3.6}\]</span></span></p></li>
+<li><p>For <span class="math inline">\(x=0\)</span>, we can can consider <span class="math inline">\(T:=T_0\)</span>, that is <strong>the future lifetime of a newborn person</strong>.</p></li>
+<li><p>Distribution and survival functions of <span class="math inline">\(T\)</span> are denoted, for <span class="math inline">\(t\geq0\)</span>, <span class="math display">\[
+  \begin{aligned}
+    F(t):&amp;=\mathbb{P}(T\leq t), \\
+    S(t):&amp;=\mathbb{P}(T&gt;t)=1-F(t).
+  \end{aligned}
+\]</span></p></li>
+<li><p>If the life was alive at age <span class="math inline">\(x&gt;0\)</span>, we can write <span id="eq-Fxt"><span class="math display">\[  
+  \begin{aligned}
+      F_x(t)&amp;=\mathbb{P}(T\leq x+t\mid T&gt;x)=\frac{\mathbb{P}(x&lt;T\leq x+t)}{\mathbb{P}(T&gt;x)}\\
+      &amp; =\frac{F(x+t)-F(x)}{S(x)}=\frac{F(x+t)-F(x)}{1-F(x)}.
+  \end{aligned}
+\tag{6.20}\]</span></span></p></li>
+<li><p>Consider the probability density function of <span class="math inline">\(T\)</span>: <span id="eq-Tdensity"><span class="math display">\[
+  f(t):=F'(t).
+\tag{6.21}\]</span></span></p></li>
+<li><p>Then, by ([@-eq-eafgsdqt]) and (<a href="#eq-Fxt" class="quarto-xref"><span>6.20</span></a>), <span id="eq-mortfbydens"><span class="math display">\[
+  \mu_x = \frac{F'(x)}{1-F(x)}= \frac{f(x)}{1-F(x)}=\frac{f(x)}{S(x)}.
+\tag{6.22}\]</span></span></p></li>
 </ul>
-<p>Note that, for <span class="math inline">\(\gamma&lt;0\)</span>, <span class="math inline">\(G_\gamma(x)\)</span> corresponds to a Weibull distribution. For <span class="math inline">\(\gamma&gt;0\)</span>, the corresponding distribution is called Fr'echet distribution, and for <span class="math inline">\(\gamma=0\)</span>, it’s called Gumbel distribution.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 11%">
-<col style="width: 33%">
-<col style="width: 19%">
-<col style="width: 33%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(G(x)\)</span></td>
-<td>Weibull<br>
-<span class="math inline">\(\gamma&lt;0\)</span></td>
-<td>Gumbel<br>
-<span class="math inline">\(\gamma=0\)</span></td>
-<td>Fr’echet<br>
-<span class="math inline">\(\gamma&gt;0\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(F(x)\)</span></td>
-<td>Uniform<br>
-Beta</td>
-<td>Exponential<br>
-Gamma<br>
-Log-normal<br>
-Normal<br>
-Weibull</td>
-<td>Burr<br>
-Pareto<br>
-<span class="math inline">\(t\)</span><br>
-Log-gamma</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(x\)</span></td>
-<td><span class="math inline">\(x&lt;a-\dfrac{b}{\gamma}\)</span></td>
-<td><span class="math inline">\(\mathbb{R}\)</span></td>
-<td><span class="math inline">\(x&gt;a-\dfrac{b}{\gamma}\)</span></td>
-</tr>
-</tbody>
-</table>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+6.13 Parametric survival models
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>Exponential model</strong>: <span class="math display">\[
+  \mu_x=\mu, \quad \text{for all } x\geq0.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+  {}_{t}p_{x}=S_x(t)=e^{-\mu t}, \quad x\geq0.   
+\]</span></p>
+<p>In particular, <span class="math display">\[
+  f(t) = S(t)\mu_t =  \mu e^{-\mu t}.
+\]</span></p></li>
+<li><p><strong>Weibull model</strong>: <span class="math display">\[
+  \mu_x=\alpha \beta x^{\beta-1}, \quad \alpha, \beta&gt;0.
+\]</span></p>
+<p>Note that <span class="math inline">\(\mu_x\)</span> is increasing if <span class="math inline">\(\beta&gt;1\)</span> and decreasing if <span class="math inline">\(\beta\in(0,1)\)</span>.</p>
+<p><span class="math inline">\(\beta=1\)</span> corresponds to the exponential model.</p>
+<p>We have <span class="math display">\[
+  {}_{t}p_{x}=S_x(t)=\exp\Bigl( - \alpha \bigl((x+t)^\beta -x^\beta\bigr) \Bigr).
+\]</span></p>
+<p>In particular,</p>
+<p><span class="math display">\[
+  S(t)=e^{- \alpha t^\beta},
+\]</span><br>
+hence, <span class="math display">\[
+  f(t) =  \alpha \beta t^{\beta-1}e^{- \alpha t^\beta}.   
+\]</span></p>
+<p>Parameter <span class="math inline">\(\beta\)</span> is called <strong>shape</strong> and <span class="math inline">\(\alpha\)</span> is called <strong>scale</strong>.</p></li>
+<li><p><strong>Gompertz model</strong>: <span class="math display">\[
+  \mu_x= b c^x, \quad b,c&gt;0.
+\]</span></p>
+<p>If <span class="math inline">\(c&gt;1\)</span>, then <span class="math inline">\(\mu_x\)</span> is increasing; and if <span class="math inline">\(c\in(0,1)\)</span>, then <span class="math inline">\(\mu_x\)</span> is decreasing. <span class="math inline">\(c=1\)</span> corresponds to the exponential model.</p>
+<p>Parameter <span class="math inline">\(b&gt;0\)</span> is called <strong>rate</strong>. Often the hazard rate is written for <span class="math inline">\(c=e^\gamma\)</span>, where <span class="math inline">\(\gamma=\ln c\in\R\)</span> is called <strong>shape</strong>.</p>
+<p>We have</p>
+<p><span class="math display">\[
+  {}_{t}p_{x}   = S_x(t)=g ^{c^x(c^t-1)},
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+  g=\exp\Bigl(-\frac{b}{\ln c}\Bigr).
+\]</span></p>
+<p>We have also:</p>
+<p><span class="math display">\[
+  f(t) = \mu_t S(t)= bc^t g^{c^t-1}.    
+\]</span></p>
+<p>It is often assumed that the force of mortality follows the Gompertz model starting from some age <span class="math inline">\(x_0&gt;0\)</span>:</p>
+<p><span class="math display">\[
+  \mu_x= B c^{x-x_0}, \qquad x\geq x_0.
+\]</span></p>
+<p>Then <span class="math inline">\(B=\mu_{x_0}\)</span> and <span class="math inline">\(b=Bc^{-x_0}\)</span>. In particular,</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    {}_{t}p_{x_0}&amp;=\exp\biggl(-\frac{Bc^{-x_0}}{\ln c} c^{x_0}(c^t-1)\biggr)\\
+    &amp;=\exp\biggl(-\frac{B}{\ln c}(c^t-1)\biggr).
+  \end{aligned}
+\]</span></p></li>
+<li><p><strong>Gompertz–Makeham model</strong>: <span class="math display">\[
+  \mu_x= a+b c^x, \quad a,b,c&gt;0.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[           
+  {}_{t}p_{x}=S_x(t)=e^{-at} g ^{c^x(c^t-1)},  
+\]</span></p>
+<p>where <span class="math inline">\(g\)</span> is the same as above.</p>
+<p>Then</p>
+<p><span class="math display">\[
+  f(t)  = (a+b c^t) e^{-at} g ^{c^t-1}.
+\]</span></p></li>
+</ul>
 </div>
 </div>
 
@@ -722,14 +1018,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Ch-02.html" class="pagination-link" aria-label="Risk models">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Risk models</span></span>
+      <a href="./Ch-05.html" class="pagination-link" aria-label="Time series">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Time series</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Ch-04.html" class="pagination-link" aria-label="Copulas">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Copulas</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
